@@ -1,17 +1,22 @@
 <html>
-	<body>
-		Bem vindo ao Clube do Pão
-		<p/>
-		Usuário Administrador<br/>
-		admin/admin<br>
+<body>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Clube do Pão - Informativo</h3>
+		</div>
+		<div class="panel-body">
+			Bem vindo ao Clube do Pão
+			<p />
+			Usuário Administrador
+			<br /> admin/admin
+			<br>
 		
-		<p/>
+			<p />
 		
-		Usuário Comum<br/>
-		usuario/usuario<br/>
-		
-		<p/>
-		
-		<a href="${pageContext.request.contextPath}/logout">logout</a>
-	</body>
+			Usuário Comum
+			<br /> usuario/usuario
+			<br />	
+		</div>
+	</div>
+</body>
 </html>

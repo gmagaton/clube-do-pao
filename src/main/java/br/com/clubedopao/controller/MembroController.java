@@ -40,14 +40,12 @@ public class MembroController {
 	}
 
 	@RequestMapping(value = "/{membroId}", method = RequestMethod.PUT)
-	public String atualizar(@PathVariable final Integer membroId, @Valid @ModelAttribute final Membro membro, final BindingResult result,
-			final Model model) {
+	public ModelAndView atualizar(@PathVariable final Integer membroId, @Valid @ModelAttribute final Membro membro, final BindingResult result, final Model model) {
 		if (result.hasErrors()) {
-			return "membro";
+			return new ModelAndView("membro");
 		}
 		membroService.salvar(membro);
-		model.addAttribute("msg", "Membro Salvo com sucesso!");
-		return "membro";
+		return membros();
 	}
 
 	@RequestMapping(value = "/{membroId}", method = RequestMethod.DELETE)
@@ -61,7 +59,6 @@ public class MembroController {
 		final Membro novoMembro = new Membro();
 		final ModelAndView modelView = new ModelAndView("membro");
 		modelView.addObject("membro", novoMembro);
-		modelView.addObject("insert", true);
 		return modelView;
 	}
 }
