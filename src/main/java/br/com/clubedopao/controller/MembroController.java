@@ -2,9 +2,11 @@ package br.com.clubedopao.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,7 +15,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
+import br.com.clubedopao.excecao.JaExisteMembroComEmailInformadoException;
 import br.com.clubedopao.modelo.Membro;
 import br.com.clubedopao.service.MembroService;
 
@@ -23,6 +27,9 @@ public class MembroController {
 
 	@Autowired
 	private MembroService membroService;
+	
+	@Autowired
+	private ReloadableResourceBundleMessageSource properties;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView membros() {
@@ -40,12 +47,19 @@ public class MembroController {
 	}
 
 	@RequestMapping(value = "/{membroId}", method = RequestMethod.PUT)
-	public ModelAndView atualizar(@PathVariable final Integer membroId, @Valid @ModelAttribute final Membro membro, final BindingResult result, final Model model) {
+	public String atualizar(@PathVariable final Integer membroId, @Valid @ModelAttribute final Membro membro, final BindingResult result, final Model model, final HttpServletRequest request) {
 		if (result.hasErrors()) {
-			return new ModelAndView("membro");
+			return "membro";
 		}
-		membroService.salvar(membro);
-		return membros();
+		try {
+			membroService.salvar(membro);
+			String mensagemSucesso = properties.getMessage("membro.sucesso", null, RequestContextUtils.getLocale(request));
+			model.addAttribute("sucesso", mensagemSucesso);
+		} catch (JaExisteMembroComEmailInformadoException e) {
+			String mensagemErro = properties.getMessage(e.getClass().getSimpleName(), null, RequestContextUtils.getLocale(request));
+			model.addAttribute("erro", mensagemErro);
+		}
+		return "membro";
 	}
 
 	@RequestMapping(value = "/{membroId}", method = RequestMethod.DELETE)

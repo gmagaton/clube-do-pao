@@ -11,5 +11,7 @@ import br.com.clubedopao.modelo.Membro;
 public interface MembrosRepository extends JpaRepository<Membro, Integer>{
 	
 	public List<Membro> findByNome(final String nome);
+	
+	public Membro findByEmail(final String email);
 
 }

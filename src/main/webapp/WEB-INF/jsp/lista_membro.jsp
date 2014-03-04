@@ -9,10 +9,10 @@
    <table class="table table-hover">
    	<thead>
    		<tr>
-   			<th><spring:message code="Membro.nome" /></th>
-   			<th><spring:message code="Membro.email" /></th>
-   			<th><spring:message code="Membro.disponibilidade" /></th>
-   			<th>ações</th>
+   			<th><spring:message code="membro.nome" /></th>
+   			<th><spring:message code="membro.email" /></th>
+   			<th><spring:message code="membro.disponibilidade" /></th>
+   			<th><spring:message code="acoes" /></th>
    		</tr>
    	</thead>
    	<tbody>

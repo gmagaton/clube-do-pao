@@ -2,6 +2,7 @@ package br.com.clubedopao.service;
 
 import java.util.List;
 
+import br.com.clubedopao.excecao.JaExisteMembroComEmailInformadoException;
 import br.com.clubedopao.modelo.Membro;
 
 public interface MembroService {
@@ -12,6 +13,6 @@ public interface MembroService {
 	
 	void removerPorId(final int id);
 	
-	void salvar(final Membro membro);
+	void salvar(final Membro membro) throws JaExisteMembroComEmailInformadoException;
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.clubedopao.excecao.JaExisteMembroComEmailInformadoException;
 import br.com.clubedopao.modelo.Membro;
 import br.com.clubedopao.repository.MembrosRepository;
 
@@ -22,7 +23,11 @@ public class MembroServiceImpl implements MembroService {
 
 	@Transactional
 	@Override
-	public void salvar(Membro membro) {
+	public void salvar(Membro membro) throws JaExisteMembroComEmailInformadoException {
+		Membro membroComMesmoEmail = membroRepository.findByEmail(membro.getEmail());
+		if(membroComMesmoEmail != null && !membro.equals(membroComMesmoEmail)){
+			throw new JaExisteMembroComEmailInformadoException();
+		}
 		membroRepository.save(membro);
 	}
 
