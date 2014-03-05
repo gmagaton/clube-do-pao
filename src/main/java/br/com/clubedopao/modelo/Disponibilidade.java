@@ -1,10 +1,14 @@
 package br.com.clubedopao.modelo;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
 import javax.persistence.Embeddable;
 
 @Embeddable
 public class Disponibilidade {
-	
+
 	private boolean segundafeira = false;
 	private boolean tercafeira = false;
 	private boolean quartafeira = false;
@@ -15,8 +19,7 @@ public class Disponibilidade {
 		super();
 	}
 
-	public Disponibilidade(boolean segundafeira, boolean tercafeira,
-			boolean quartafeira, boolean quintafeira, boolean sextafeira) {
+	public Disponibilidade(boolean segundafeira, boolean tercafeira, boolean quartafeira, boolean quintafeira, boolean sextafeira) {
 		super();
 		this.segundafeira = segundafeira;
 		this.tercafeira = tercafeira;
@@ -63,6 +66,26 @@ public class Disponibilidade {
 
 	public void setSextafeira(boolean sextafeira) {
 		this.sextafeira = sextafeira;
+	}
+
+	public List<Integer> getDiasSemana() {
+		ArrayList<Integer> diasSemana = new ArrayList<Integer>();
+		if (isSegundafeira()) {
+			diasSemana.add(Calendar.MONDAY);
+		}
+		if (isTercafeira()) {
+			diasSemana.add(Calendar.TUESDAY);
+		}
+		if (isQuartafeira()) {
+			diasSemana.add(Calendar.WEDNESDAY);
+		}
+		if (isQuintafeira()) {
+			diasSemana.add(Calendar.THURSDAY);
+		}
+		if (isSextafeira()) {
+			diasSemana.add(Calendar.FRIDAY);
+		}
+		return diasSemana;
 	}
 
 	@Override

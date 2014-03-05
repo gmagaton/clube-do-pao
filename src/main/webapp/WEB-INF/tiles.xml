@@ -9,9 +9,14 @@
 		<put-attribute name="body" value="" />
 	</definition>
 
-	<definition name="index" extends="layout">
+	<definition name="inicial" extends="layout">
 		<put-attribute name="pageTitle" value="Início" />
 		<put-attribute name="body" value="/WEB-INF/jsp/inicial.jsp" />
+	</definition>
+
+	<definition name="login" extends="layout">
+		<put-attribute name="pageTitle" value="Login" />
+		<put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
 	</definition>
 
 	<definition name="membro" extends="layout">
@@ -22,6 +27,16 @@
 	<definition name="lista_membro" extends="layout">
 		<put-attribute name="pageTitle" value="Lista de Membros" />
 		<put-attribute name="body" value="/WEB-INF/jsp/lista_membro.jsp" />
+	</definition>
+	
+	<definition name="tabela" extends="layout">
+		<put-attribute name="pageTitle" value="Gerar Tabela" />
+		<put-attribute name="body" value="/WEB-INF/jsp/tabela.jsp" />
+	</definition>
+	
+	<definition name="lista_tabela" extends="layout">
+		<put-attribute name="pageTitle" value="Lista de Tabela" />
+		<put-attribute name="body" value="/WEB-INF/jsp/lista_tabela.jsp" />
 	</definition>
 
 </tiles-definitions>

@@ -1,4 +1,4 @@
-package br.com.clubedopao.repository;
+package br.com.clubedopao.repositorio;
 
 import java.util.List;
 
@@ -8,10 +8,10 @@ import org.springframework.stereotype.Repository;
 import br.com.clubedopao.modelo.Membro;
 
 @Repository
-public interface MembrosRepository extends JpaRepository<Membro, Integer>{
-	
+public interface MembrosRepositorio extends JpaRepository<Membro, Integer> {
+
 	public List<Membro> findByNome(final String nome);
-	
+
 	public Membro findByEmail(final String email);
 
 }

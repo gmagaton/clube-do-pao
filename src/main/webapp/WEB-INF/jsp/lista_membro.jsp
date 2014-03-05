@@ -6,7 +6,7 @@
 <p/>
 <h2>Lista de Membros</h2>
 <p/>
-   <table class="table table-hover">
+<table class="table table-hover">
    	<thead>
    		<tr>
    			<th><spring:message code="membro.nome" /></th>

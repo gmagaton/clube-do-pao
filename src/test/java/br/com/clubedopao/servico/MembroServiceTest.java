@@ -9,17 +9,17 @@ import org.testng.annotations.Test;
 
 import br.com.clubedopao.excecao.JaExisteMembroComEmailInformadoException;
 import br.com.clubedopao.modelo.Membro;
-import br.com.clubedopao.repository.MembrosRepository;
-import br.com.clubedopao.service.MembroService;
+import br.com.clubedopao.repositorio.MembrosRepositorio;
+import br.com.clubedopao.servico.MembroServico;
 
 @ContextConfiguration(locations = { "classpath:applicationContextTest.xml" })
 public class MembroServiceTest extends AbstractTransactionalTestNGSpringContextTests {
 
 	@Autowired
-	private MembrosRepository membroDao;
-	
+	private MembrosRepositorio membroDao;
+
 	@Autowired
-	private MembroService membroService;
+	private MembroServico membroService;
 
 	@BeforeMethod
 	public void inicializar() {

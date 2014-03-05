@@ -19,15 +19,15 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 import br.com.clubedopao.excecao.JaExisteMembroComEmailInformadoException;
 import br.com.clubedopao.modelo.Membro;
-import br.com.clubedopao.service.MembroService;
+import br.com.clubedopao.servico.MembroServico;
 
 @Controller
 @RequestMapping(value = "/membro")
 public class MembroController {
 
 	@Autowired
-	private MembroService membroService;
-	
+	private MembroServico membroService;
+
 	@Autowired
 	private ReloadableResourceBundleMessageSource properties;
 

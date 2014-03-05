@@ -22,7 +22,7 @@
 	<tx:annotation-driven />
 	<mvc:annotation-driven />
 	<context:component-scan base-package="br.com.clubedopao" />
-	<jpa:repositories base-package="br.com.clubedopao.repository" />
+	<jpa:repositories base-package="br.com.clubedopao.repositorio" />
 	<mvc:resources mapping="/bootstrap/**" location="/bootstrap/" />
 	
 	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
@@ -65,7 +65,7 @@
 	<bean class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" id="dataSource">
 		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
-		<property name="url" value="jdbc:hsqldb:mem:clube-do-pao" />
+		<property name="url" value="jdbc:hsqldb:file:clube-do-pao" />
 		<property name="username" value="sa" />
 		<property name="password" value="" />
 	</bean>

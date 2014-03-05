@@ -48,7 +48,7 @@ body {
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="brand" href="${pageContext.request.contextPath}/index.jsp"><tiles:insertAttribute name="title" ignore="true" /></a>
+				<a class="brand" href="${pageContext.request.contextPath}"><tiles:insertAttribute name="title" ignore="true" /></a>
 				<div class="nav-collapse collapse">
 					<tiles:insertAttribute name="menu" />
 				</div>

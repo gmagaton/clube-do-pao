@@ -19,8 +19,8 @@
     	http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
 	<tx:annotation-driven />
-	<context:component-scan base-package="br.com.clubedopao.service" />
-	<jpa:repositories base-package="br.com.clubedopao.repository" />
+	<context:component-scan base-package="br.com.clubedopao.servico" />
+	<jpa:repositories base-package="br.com.clubedopao.repositorio" />
 
 	<bean class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" id="dataSource">

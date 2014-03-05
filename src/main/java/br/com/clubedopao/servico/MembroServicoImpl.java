@@ -1,4 +1,4 @@
-package br.com.clubedopao.service;
+package br.com.clubedopao.servico;
 
 import java.util.List;
 
@@ -8,13 +8,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.clubedopao.excecao.JaExisteMembroComEmailInformadoException;
 import br.com.clubedopao.modelo.Membro;
-import br.com.clubedopao.repository.MembrosRepository;
+import br.com.clubedopao.repositorio.MembrosRepositorio;
 
 @Service
-public class MembroServiceImpl implements MembroService {
-	
+public class MembroServicoImpl implements MembroServico {
+
 	@Autowired
-	private MembrosRepository membroRepository;
+	private MembrosRepositorio membroRepository;
 
 	@Override
 	public List<Membro> listarTodos() {
@@ -25,7 +25,7 @@ public class MembroServiceImpl implements MembroService {
 	@Override
 	public void salvar(Membro membro) throws JaExisteMembroComEmailInformadoException {
 		Membro membroComMesmoEmail = membroRepository.findByEmail(membro.getEmail());
-		if(membroComMesmoEmail != null && !membro.equals(membroComMesmoEmail)){
+		if (membroComMesmoEmail != null && !membro.equals(membroComMesmoEmail)) {
 			throw new JaExisteMembroComEmailInformadoException();
 		}
 		membroRepository.save(membro);
@@ -40,6 +40,5 @@ public class MembroServiceImpl implements MembroService {
 	public void removerPorId(int id) {
 		membroRepository.delete(id);
 	}
-
 
 }
