@@ -1,7 +1,5 @@
 package br.com.clubedopao.controller;
 
-import java.security.Principal;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,35 +9,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LoginController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String printWelcome(ModelMap model, Principal principal) {
-
-		String name = principal.getName();
-		model.addAttribute("username", name);
-		model.addAttribute("message", "Spring Security Custom Form example");
-		return "inicial";
-
+	public String inicial(final ModelMap model) {
+		return "index";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(ModelMap model) {
-
+	public String login(final ModelMap model) {
 		return "login";
-
 	}
 
-	@RequestMapping(value = "/loginfailed", method = RequestMethod.GET)
-	public String loginerror(ModelMap model) {
-
-		model.addAttribute("error", "true");
+	@RequestMapping(value = "/loginerro", method = RequestMethod.GET)
+	public String loginerro(final ModelMap model) {
+		model.addAttribute("erro", "true");
 		return "login";
-
-	}
-
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(ModelMap model) {
-
-		return "login";
-
 	}
 
 }

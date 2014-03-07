@@ -30,6 +30,7 @@ public class GeradorDeTabelaTest {
 		final GeradorDeTabela geradorDeTabela = new GeradorDeTabela(sabado, membros);
 		final Tabela tabelaGerada = geradorDeTabela.gerar(30);
 		Assert.assertNotNull(tabelaGerada);
+		Assert.assertTrue(tabelaGerada.getCronograma().size() == 30);
 	}
 
 	private List<Membro> gerarMembros() {

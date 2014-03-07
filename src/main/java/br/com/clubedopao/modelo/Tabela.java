@@ -1,7 +1,6 @@
 package br.com.clubedopao.modelo;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -68,16 +67,6 @@ public class Tabela implements Serializable {
 			return false;
 		}
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		final StringBuilder toString = new StringBuilder();
-		toString.append("Tabela Data In’cio:" + SimpleDateFormat.getDateInstance().format(getDataInicio().getTime())).append("\n");
-		for (final TabelaCronograma cronograma : getCronograma()) {
-			toString.append(cronograma.toString()).append("\n");
-		}
-		return toString.toString();
 	}
 
 	public Calendar getDataInicio() {

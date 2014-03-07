@@ -16,19 +16,15 @@ public class GeradorDeTabela {
 	public GeradorDeTabela(final Calendar dataInicio, final List<Membro> membros) {
 		super();
 		this.dataInicio = CalendarUtil.getDataEntreSegundaSexta(dataInicio);
-		if (membros != null)
+		if (membros != null) {
 			this.membros.addAll(membros);
+		}
 	}
 
 	public Tabela gerar(final int quantidadeDias) {
-		// inicio j‡ Ž de segunda a sexta
 		final Tabela tabela = new Tabela(dataInicio);
-		// int semanaDoAno = dataInicio.get(Calendar.WEEK_OF_YEAR);
-
 		Calendar dataCronograma = (Calendar) dataInicio.clone();
-
 		final LinkedHashSet<Membro> membrosCronograma = new LinkedHashSet<Membro>(membros);
-		// final List<Membro> membrosJaUtilizados = new ArrayList<Membro>();
 
 		int quantidadeIteracoes = 1;
 		while (quantidadeIteracoes <= quantidadeDias) {
@@ -36,7 +32,7 @@ public class GeradorDeTabela {
 			final int diaDaSemana = dataCronograma.get(Calendar.DAY_OF_WEEK);
 			final Membro membroCronograma = Membro.encontrarMembroParaODia(membrosCronograma, diaDaSemana);
 
-			// se encontrou coloca membro no final da fila
+			// se encontrou coloca membro no final da lista
 			if (membroCronograma != null) {
 				membrosCronograma.remove(membroCronograma);
 				membrosCronograma.add(membroCronograma);
@@ -44,7 +40,7 @@ public class GeradorDeTabela {
 			}
 			tabela.addMembro((Calendar) dataCronograma.clone(), membroCronograma);
 
-			// avancar data
+			// avancar para o proximo dia e verificar se Ã© de segunda a sexta
 			dataCronograma.add(Calendar.DAY_OF_YEAR, 1);
 			dataCronograma = CalendarUtil.getDataEntreSegundaSexta(dataCronograma);
 

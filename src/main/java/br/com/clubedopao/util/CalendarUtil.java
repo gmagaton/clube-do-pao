@@ -39,19 +39,19 @@ public final class CalendarUtil {
 		final int diaSemana = data.get(Calendar.DAY_OF_WEEK);
 		switch (diaSemana) {
 		case Calendar.MONDAY:
-			dia = "Segunda-Feira";
+			dia = "disponibilidade.segundafeira";
 			break;
 		case Calendar.TUESDAY:
-			dia = "Terça-Feira";
+			dia = "disponibilidade.tercafeira";
 			break;
 		case Calendar.WEDNESDAY:
-			dia = "Quarta-Feira";
+			dia = "disponibilidade.quartafeira";
 			break;
 		case Calendar.THURSDAY:
-			dia = "Quinta-Feira";
+			dia = "disponibilidade.quintafeira";
 			break;
 		case Calendar.FRIDAY:
-			dia = "Sexta-Feira";
+			dia = "disponibilidade.sextafeira";
 			break;
 
 		default:
