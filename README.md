@@ -13,9 +13,8 @@ Funcionalidades:
 Permissões:
   - Apenas usuário administrador pode manter o cadastro de membros
   
-Usuários:
+Usuário:
   Administrador: usuário:admin senha:admin
-  Usuário Comum: usuário:usuario senha:usuario
   
 Execução:
   - Baixar o projeto e executar mvn tomcat7:run
