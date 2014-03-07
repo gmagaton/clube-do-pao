@@ -10,7 +10,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import br.com.clubedopao.modelo.Membro;
-import br.com.clubedopao.repositorio.MembrosRepositorio;
 
 @ContextConfiguration(locations = { "classpath:applicationContextTest.xml" })
 public class MembroDaoTest extends AbstractTransactionalTestNGSpringContextTests {
@@ -27,9 +26,16 @@ public class MembroDaoTest extends AbstractTransactionalTestNGSpringContextTests
 
 	@Test
 	public void deveBuscarMembroPorNome() {
-		List<Membro> membros = membroRepositorio.findByNome("Gabriel");
+		final List<Membro> membros = membroRepositorio.findByNome("Gabriel");
 		Assert.assertNotNull(membros);
 		Assert.assertTrue(membros.size() == 1);
+	}
+
+	@Test
+	public void deveBuscarMembroPorEmail() {
+		final Membro membroPorEmail = membroRepositorio.findByEmail("manuel@gmail.com");
+		Assert.assertNotNull(membroPorEmail);
+		Assert.assertEquals(membroPorEmail.getNome(), "Manuel");
 	}
 
 }
