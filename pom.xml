@@ -31,7 +31,6 @@
 		<target.version>1.6</target.version>
 	</properties>
 
-
 	<build>
 		<finalName>clube-do-pao</finalName>
 		<plugins>
